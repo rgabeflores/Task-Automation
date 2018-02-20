@@ -1,5 +1,7 @@
 import sys
-
+'''
+    Compares text in two files. Ignores whitespace.
+'''
 
 def main(main_file, second_file):
 
