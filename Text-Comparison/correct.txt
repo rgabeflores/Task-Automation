@@ -1,0 +1,93 @@
+
+Before Insertions: Number of keys in tree: 0; Is 'cat' in tree? No; Is  in tree? Yes
+
+PREORDER tree traversal
+
+INORDER tree traversal
+
+POSTORDER tree traversal
+
+After Insertions: Number of keys in tree: 7; Is 'cat' in tree? No; Is Doc in tree? Yes
+
+PREORDER tree traversal
+Grumpy Doc Bashful Dopey Sleepy Happy Sneezy 
+
+INORDER tree traversal
+Bashful Doc Dopey Grumpy Happy Sleepy Sneezy 
+
+POSTORDER tree traversal
+Bashful Dopey Doc Happy Sneezy Sleepy Grumpy 
+
+After removing Grumpy: Number of keys in tree: 6; Is 'cat' in tree? No; Is Grumpy in tree? No
+
+PREORDER tree traversal
+Dopey Doc Bashful Sleepy Happy Sneezy 
+
+INORDER tree traversal
+Bashful Doc Dopey Happy Sleepy Sneezy 
+
+POSTORDER tree traversal
+Bashful Doc Happy Sneezy Sleepy Dopey 
+
+After removing Sleepy: Number of keys in tree: 5; Is 'cat' in tree? No; Is Sleepy in tree? No
+
+PREORDER tree traversal
+Dopey Doc Bashful Happy Sneezy 
+
+INORDER tree traversal
+Bashful Doc Dopey Happy Sneezy 
+
+POSTORDER tree traversal
+Bashful Doc Sneezy Happy Dopey 
+
+After removing Sneezy: Number of keys in tree: 4; Is 'cat' in tree? No; Is Sneezy in tree? No
+
+PREORDER tree traversal
+Dopey Doc Bashful Happy 
+
+INORDER tree traversal
+Bashful Doc Dopey Happy 
+
+POSTORDER tree traversal
+Bashful Doc Happy Dopey 
+
+After removing Doc: Number of keys in tree: 3; Is 'cat' in tree? No; Is Doc in tree? No
+
+PREORDER tree traversal
+Dopey Bashful Happy 
+
+INORDER tree traversal
+Bashful Dopey Happy 
+
+POSTORDER tree traversal
+Bashful Happy Dopey 
+
+After removing Bashful: Number of keys in tree: 2; Is 'cat' in tree? No; Is Bashful in tree? No
+
+PREORDER tree traversal
+Dopey Happy 
+
+INORDER tree traversal
+Dopey Happy 
+
+POSTORDER tree traversal
+Happy Dopey 
+
+After removing Dopey: Number of keys in tree: 1; Is 'cat' in tree? No; Is Dopey in tree? No
+
+PREORDER tree traversal
+Happy 
+
+INORDER tree traversal
+Happy 
+
+POSTORDER tree traversal
+Happy 
+
+After removing Happy: Number of keys in tree: 0; Is 'cat' in tree? No; Is Happy in tree? No
+
+PREORDER tree traversal
+
+INORDER tree traversal
+
+POSTORDER tree traversal
