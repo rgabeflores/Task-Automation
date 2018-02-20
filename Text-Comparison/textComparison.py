@@ -3,17 +3,18 @@ import sys
     Compares text in two files. Ignores whitespace.
 '''
 
-def main(main_file, second_file):
 
-    with open(main_file) as f1:
+def main():
+
+    with open(sys.argv[1]) as f1:
         lines1 = (x.strip().split() for x in f1.readlines())  # generator for list of lists
 
-    with open(second_file) as f2:
+    with open(sys.argv[2]) as f2:
         lines2 = (x.strip().split() for x in f2.readlines())  # generator for list of lists
 
     results = compare_lines(lines1, lines2)
 
-    print(results) # [number of errors, locations of lines with errors, number of errors in each line]
+    print(results)  # [number of errors, locations of lines with errors, number of errors in each line]
 
 
 def elim_white_space(lines_of_main, lines_of_second):
@@ -54,6 +55,4 @@ def compare_lines(first, second):
 
 
 if __name__ == '__main__':
-    correct = "correct.txt"
-    test = "test.txt"
-    main(correct, test)
+    main()
