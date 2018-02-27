@@ -1,5 +1,7 @@
-Mean: 18.275862068965516
-Median: 18
-Mode: 17
-Variance: 10.421182266009852
-Standard Deviation: 3.228185599684419
+                       Exam 1
+Min                 11.000000
+Max                 24.000000
+Mean                18.275862
+Median              18.000000
+Variance            10.061831
+Standard Deviation   3.172039
