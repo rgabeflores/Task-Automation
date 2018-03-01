@@ -9,12 +9,12 @@ def main():
 
     try:
         with open(sys.argv[1]) as f1:
-            lines1 = f1.readlines()  # generator for list of lists
+            lines1 = f1.readlines()
     except FileNotFoundError as e:
         sys.exit('The first file was not found.')
     try:
         with open(sys.argv[2]) as f2:
-            lines2 = f2.readlines()  # generator for list of lists
+            lines2 = f2.readlines()
     except FileNotFoundError as e:
         sys.exit('The second file was not found.')
 
