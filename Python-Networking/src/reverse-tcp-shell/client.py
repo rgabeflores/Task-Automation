@@ -3,7 +3,7 @@ import socket
 import subprocess
 
 s = socket.socket()
-host = "10.39.29.128" # Local IP
+host = "localhost" # IP
 port = 9997
 
 def main():
