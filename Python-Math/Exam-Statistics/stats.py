@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from matplotlib import pyplot as plt
+import sys
 
 '''
     A basic script to graph test scores and calculate statistical data.
@@ -9,17 +10,23 @@ from matplotlib import pyplot as plt
 
 def get_scores():
 
-    # Gets test scores from text file
+    # Gets test scores from text file passed as command line arg
     try:
-        with open('scores.txt') as data:
+        with open(sys.argv[1]) as data:
             return [int(x.strip()) for x in data.readlines()]
     except FileNotFoundError as e:
-        from sys import exit
-        print('scores.txt was not found.')
-        exit()
+        print('File was not found.')
+        sys.exit()
+    except Exception as e:
+        print('''
+            Something went wrong...
+            Usage:
+                python stats.py <file>
+            ''')
+        sys.exit()
 
 
-def output(values):
+def frame(values, entry):
     # Formats output
     df = pd.DataFrame(pd.Series([
         np.amin(values),
@@ -37,7 +44,7 @@ def output(values):
         'Standard Deviation'
     ]),
         columns=[
-            'Exam 1'
+            entry
     ]
     )
 
@@ -54,26 +61,29 @@ def output(values):
         # print('Something went wrong while writing to the file.')
 
 
+def display(x, y, title):
+    plt.bar(x, y, label='Scores')
+    plt.xlabel('Score')
+    plt.ylabel('Quantity')
+    plt.title(title)
+    plt.legend()
+    plt.show()
+
+
 def main():
 
     values = get_scores()
-    output(values)
+    title = input('Enter a name for these scores:\n')
+    frame(values, title)
 
-    # X-axis values
     x = np.array([i for i in range(min(values), max(values) + 1)])
-    # Y-axis values
-    y = np.array([0 for i in range(25)])
+    y = np.array([0 for i in range(max(values) + 1)])
 
     # Adds up score quantities
     for j in values:
         y[j] += 1
 
-    plt.bar(x, y[min(values):], label='Scores')
-    plt.xlabel('Score')
-    plt.ylabel('Quantity')
-    plt.title('Exam 1 Scores')
-    plt.legend()
-    plt.show()
+    display(x, y[min(values):], title)
 
 
 if __name__ == '__main__':
