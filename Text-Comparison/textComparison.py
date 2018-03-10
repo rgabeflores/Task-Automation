@@ -12,10 +12,10 @@ def main():
 
     for arg in sys.argv[1:]:
         try:
-            with open(arg) as f:
+            with open('./'.format(arg)) as f:
                 content.append(f.readlines())
         except FileNotFoundError as e:
-            sys.exit('One of the files was')
+            sys.exit('One of the files is missing or misplaced.')
 
     results = ndiff(content[0], content[1])
     print(''.join(results))
