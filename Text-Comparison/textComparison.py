@@ -24,10 +24,9 @@ def main():
         except Exception as e:
             sys.exit('\nSomething went wrong.\n')
 
-    results = ndiff(content[0], content[1])
-    for result in results:
-        print(result)
-        logging.info(result)
+    results = ''.join(ndiff(content[0], content[1]))
+    print(results)
+    logging.info(results)
 
 
 if __name__ == '__main__':
