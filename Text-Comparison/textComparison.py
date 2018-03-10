@@ -16,6 +16,8 @@ def main():
                 content.append(f.readlines())
         except FileNotFoundError as e:
             sys.exit('One of the files is missing or misplaced.')
+        except Exception as e:
+            sys.exit('Something went wrong.')
 
     results = ndiff(content[0], content[1])
     print(''.join(results))
