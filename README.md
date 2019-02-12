@@ -19,7 +19,7 @@ These are basic Python 3.6 scripts that can be used and modified for a variety o
  * Thumbnail Creator
     * create thumbnails with ratio constraints
 
-> NOTE: This is an ongoing project. The list of scripts will continously grow over time.
+> NOTE: This is an ongoing project. New scripts will continuously be added.
 
 ## Contributors
 
