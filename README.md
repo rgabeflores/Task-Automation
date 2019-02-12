@@ -8,8 +8,8 @@ These are basic Python 3.6 scripts that can be used and modified for a variety o
     * scrapes image resources from webpages
  * Job Scraper
     * scrape entries from a job site for quick spreadsheet entry
- * OpenCV
-    * camera controls with OpenCV library
+ * OpenCV Camera Control
+    * camera controls with [OpenCV](https://opencv.org/) library
  * Mathematics
     * formulaic computations and algorithms
  * Networking
