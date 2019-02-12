@@ -1,5 +1,5 @@
 # Scripts
-These are basic Python 3.6 scripts that can be used and modified for a variety of situations. The purpose of these modules is to automate tasks for both Desktop and server clients.
+These are basic Python 3.6 scripts that can be used and modified for a variety of situations. The purpose of these modules is to improve workflow by automating various computer tasks.
 
 ## Full List of Scripts
  * Audio Extractor
