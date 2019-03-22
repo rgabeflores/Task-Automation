@@ -39,8 +39,8 @@ def png_to_jpg(folder):
 				except Exception as e:
 					logging.debug(e)
 				else:
-					if not path.exists(f'../jpg/{folder}'):
-						makedirs(f'../jpg/{folder}')
+					if not path.exists(f'../../jpg/{folder}'):
+						makedirs(f'../../jpg/{folder}')
 					img = img.convert('RGB')
 					img.save(f'../../jpg/{folder}/{file[0:-4]}.jpg')
 					logging.info(f'Successful for {file}')
