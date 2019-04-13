@@ -12,7 +12,8 @@ logging.basicConfig(level=logging.DEBUG)
 '''
 	Extracts audio from url using youtube-dl. Takes one command line argument for the filename of the input. 
     The file should have a list of URLs delimited by new lines.
-    Usage:
+
+    USAGE:
         >> python extract.py <filename>
 '''
 
@@ -36,7 +37,7 @@ def cd(dest):
 
 def extraction(urls):
     '''
-        Retrieve the audio from the resources located at a given list of links
+        Retrieve the audio from the resources located at a given list of links.
     '''
     YDL_OPTIONS = {
             'format': 'bestaudio/best',
@@ -57,13 +58,17 @@ def extraction(urls):
 
 def main(FILE):
 
+    # Check if file exists
     if not(isfile(FILE)):
         print(f'Input file ({FILE}) does not exist')
         sys.exit(1)
 
-    with open(f'./input/{FILE}', 'r') as f:
+    # Get the URLS from the file delimited by new lines
+    with open(FILE, 'r') as f:
         urls = (line.strip() for line in f.readlines())
+
     extraction(urls)
+    print('Done.')
 
 
 if __name__ == '__main__':
