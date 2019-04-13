@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
-from os import chdir, mkdir, listdir, path
+from os import chdir, mkdir, listdir, getcwd
+from os.path import isfile
 from contextlib import contextmanager
 
 import youtube_dl
@@ -7,28 +8,37 @@ import sys
 import logging
 
 logging.basicConfig(level=logging.DEBUG)
+
 '''
-	Extracts audio from url using youtube-dl
+	Extracts audio from url using youtube-dl. Takes one command line argument for the filename of the input. 
+    The file should have a list of URLs delimited by new lines.
+    Usage:
+        >> python extract.py <filename>
 '''
 
+OUTPUT_PATH = './output/'
 
 @contextmanager
-def dirwalk(x):
-    if not(path.exists(x)):
-        print('Output folder (./output/) does not exist')
-        sys.exit(1)
-    logging.info(f'Entering -> {x}')
-    chdir(x)
-    yield
-    chdir('..')
-    logging.info(f'Leaving -> {x}')
+def cd(dest):
+    '''
+        This function safely enters and exits a directory. 
+
+        Usage:
+            with cd("/path/to/directory"):
+                # Code
+    '''
+    origin = getcwd()
+    try:
+        yield chdir(dest)
+    finally:
+        chdir(origin)
 
 
 def extraction(urls):
-    OUTPUT_PATH = './output/'
-
-    with dirwalk(OUTPUT_PATH):
-        ydl_opts = {
+    '''
+        Retrieve the audio from the resources located at a given list of links
+    '''
+    YDL_OPTIONS = {
             'format': 'bestaudio/best',
             'postprocessors': [{
                 'key': 'FFmpegExtractAudio',
@@ -36,7 +46,8 @@ def extraction(urls):
                 'preferredquality': '192',
             }],
         }
-        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+    with cd(OUTPUT_PATH):
+        with youtube_dl.YoutubeDL(YDL_OPTIONS) as ydl:
             for url in urls:
                 try:
                     ydl.download([url])
@@ -46,7 +57,7 @@ def extraction(urls):
 
 def main(FILE):
 
-    if not(path.isfile(FILE)):
+    if not(isfile(FILE)):
         print(f'Input file ({FILE}) does not exist')
         sys.exit(1)
 
